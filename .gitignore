@@ -1,3 +1,11 @@
+#idea
+/.idea/
+
+#eclipse
+/.settings/
+.project
+.classpath
+
 # Compiled class file
 *.class
 
