@@ -2,9 +2,6 @@ package com.wyj.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.wyj.entity.po.User;
-import org.apache.ibatis.annotations.Mapper;
-
-import java.util.List;
 
 /**
  * @author wyj
