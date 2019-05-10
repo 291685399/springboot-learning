@@ -1,6 +1,9 @@
 package com.wyj;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import sun.management.counter.perf.PerfInstrumentation;
+import sun.rmi.runtime.Log;
 
 import java.awt.*;
 import java.io.*;
@@ -19,20 +22,57 @@ import java.util.Date;
 @Component
 public class CSDNTest {
 
+    private static Long blogSleepTime;
+    private static Long chromeSleepTime;
     private static Desktop desktop;//定义私有静态成员变量
     public static ArrayList<String> blogAddressList = new ArrayList<String>();//用来存储博客地址集合
     public static ArrayList<String> blogNameList = new ArrayList<String>();//用户存储博客名称集合
 
-    public static void getBlogAddress() {
-        File file = null;
+    public static void getTime() {
         InputStream inputStream = null;
         BufferedReader bufferedReader = null;
-        URL url = null;
+        try {
+            inputStream = CSDNTest.class.getClassLoader().getResourceAsStream("application.properties");
+            bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+            String str = null;
+            int count = 0;
+            while ((str = bufferedReader.readLine()) != null) {
+                count++;
+                String[] split = str.split("=");
+                if (count == 1) {
+                    blogSleepTime = Long.parseLong(split[1]);
+                }
+                if (count == 2) {
+                    chromeSleepTime = Long.parseLong(split[1]);
+                }
+            }
+            System.out.println("blogSleepTime:" + blogSleepTime);
+            System.out.println("chromeSleepTime:" + chromeSleepTime);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
+    public static void getBlogAddress() {
+        InputStream inputStream = null;
+        BufferedReader bufferedReader = null;
         try {
             inputStream = CSDNTest.class.getClassLoader().getResourceAsStream("blogAddress.txt");
-//            file = new File(url.getFile());
-//            inputStream = new FileInputStream(file);
             bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
             String str = null;
             while ((str = bufferedReader.readLine()) != null) {
@@ -42,6 +82,21 @@ public class CSDNTest {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
     }
@@ -64,6 +119,7 @@ public class CSDNTest {
     }
 
     public static void main(String args[]) {
+        getTime();
         int i = 0;
         getBlogAddress();
         while (true) {    //一直循环
@@ -73,13 +129,13 @@ public class CSDNTest {
                     String date = simpleDateFormat.format(new Date());
                     System.out.println("在" + date + "访问了" + blogNameList.get(i) + "blogAddress：" + blogAddressList.get(i));
                     browse((String) blogAddressList.get(i));
-                    Thread.sleep(5000);    //这里的单位为毫秒我这里设置每个网址之间间隔5s 这里可以根据情况改
+                    Thread.sleep(blogSleepTime);    //这里的单位为毫秒我这里设置每个网址之间间隔5s 这里可以根据情况改
                 } else {
                     i = -1; //将i重置为-1 因为后面会进行i++ 加1后就变成了0
                     // 启用cmd运行chrome的方式来退出
                     Runtime.getRuntime().exec("taskkill /F /IM chrome.exe"); //我默认浏览器是chrome
                     //如果你默认的浏览器是firefox 将chrome改为firefox即可
-                    Thread.sleep(50000);    //这里的单位为毫秒 我这里设置每个访问所有博文后 休眠5分钟 这里可以根据情况改
+                    Thread.sleep(chromeSleepTime);    //这里的单位为毫秒 我这里设置每个访问所有博文后 休眠5分钟 这里可以根据情况改
                 }
             } catch (Exception e) {
                 e.printStackTrace();
