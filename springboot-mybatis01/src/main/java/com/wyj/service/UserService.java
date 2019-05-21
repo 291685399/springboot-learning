@@ -37,7 +37,7 @@ public interface UserService {
      * @param id
      * @return
      */
-    public User seleteUser(String id);
+    public User selectUser(String id);
 
     /**
      * 查找多条数据
@@ -45,6 +45,6 @@ public interface UserService {
      * @param user
      * @return
      */
-    public List<User> seleteUserList(User user);
+    public List<User> selectUserList(User user);
 
 }

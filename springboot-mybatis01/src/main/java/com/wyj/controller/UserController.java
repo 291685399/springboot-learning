@@ -42,18 +42,18 @@ public class UserController {
         return APIResponse.success("删除成功");
     }
 
-    @RequestMapping(value = "/seleteUser")
-    public APIResponse seleteUser() {
+    @RequestMapping(value = "/selectUser")
+    public APIResponse selectUser() {
         String id = "1";
-        User user = userService.seleteUser(id);
+        User user = userService.selectUser(id);
         return APIResponse.success(user);
     }
 
-    @RequestMapping(value = "/seleteUserList")
-    public APIResponse seleteUserList() {
+    @RequestMapping(value = "/selectUserList")
+    public APIResponse selectUserList() {
         User user = new User();
         user.setUsername("admin");
-        List<User> users = userService.seleteUserList(user);
+        List<User> users = userService.selectUserList(user);
         return APIResponse.success(users);
     }
 

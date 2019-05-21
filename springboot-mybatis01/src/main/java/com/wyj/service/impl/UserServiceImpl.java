@@ -34,13 +34,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User seleteUser(String id) {
-        return userMapper.seleteUser(id);
+    public User selectUser(String id) {
+        return userMapper.selectUser(id);
     }
 
     @Override
-    public List<User> seleteUserList(User user) {
-        return userMapper.seleteUserList(user);
+    public List<User> selectUserList(User user) {
+        return userMapper.selectUserList(user);
     }
 
 }
