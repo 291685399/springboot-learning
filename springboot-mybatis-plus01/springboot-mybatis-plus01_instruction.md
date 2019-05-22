@@ -24,7 +24,7 @@
 
     2、在application.properties文件中配置dataSource
         spring.datasource.driver-class-name=com.mysql.jdbc.Driver
-        spring.datasource.url=jdbc:mysql://127.0.0.1:3306/springboot-mybatis01?allowMultiQueries=true&useUnicode=true&useSSL=false&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+        spring.datasource.url=jdbc:mysql://127.0.0.1:3306/springboot-mybatis-plus01?allowMultiQueries=true&useUnicode=true&useSSL=false&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
         spring.datasource.username=root
         spring.datasource.password=root
         
