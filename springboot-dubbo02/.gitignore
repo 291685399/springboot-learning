@@ -1,0 +1,42 @@
+/springboot-dubbo02-api-web/.project
+/springboot-dubbo02-api-web/.settings/
+/springboot-dubbo02-api-web/.classpath
+/springboot-dubbo02-api-web/target/
+/springboot-dubbo02-service/.project
+/springboot-dubbo02-service/.settings/
+/springboot-dubbo02-service/.classpath
+/springboot-dubbo02-service/target/
+/springboot-dubbo02-service-impl/.project
+/springboot-dubbo02-service-impl/.settings/
+/springboot-dubbo02-service-impl/.classpath
+/springboot-dubbo02-service-impl/target/
+
+HELP.md
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/build/
+
+### VS Code ###
+.vscode/
