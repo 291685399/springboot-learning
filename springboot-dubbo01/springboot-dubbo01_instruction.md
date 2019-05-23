@@ -3,16 +3,16 @@
 **springboot整合dubbo**
 
 ## springboot整合dubbo说明
-    springboot-dubbo-api-web：
+    springboot-dubbo01-api-web：
         存放controller
         存放handler
-        存放filter
-    springboot-dubbo-service：
+        存放interceptor
+    springboot-dubbo01-service：
         存放实体类
         存放Enum
         存放工具类
         存放service接口
-    springboot-dubbo-service-impl：
+    springboot-dubbo01-service-impl：
         存放service接口实现类
         存放mapper接口
         存放mapper.xml文件
@@ -31,7 +31,7 @@
                 <module>springboot-dubbo01-service</module>
             </modules>
         
-    2、创建springboot-dubbo-api-web模块，为springboot项目
+    2、创建springboot-dubbo01-api-web模块，为springboot项目
         (1)、在pom.xml文件中添加依赖
             <parent>
                 <groupId>com.wyj</groupId>
@@ -67,13 +67,13 @@
             spring.dubbo.application.name=demo-consumer
             spring.dubbo.registry.address=zookeeper://127.0.0.1:2181
             spring.dubbo.scan=com.wyj.controller
-        (3)、在APIApplication.java中添加
+        (3)、在ApiApplication.java中添加
             @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
         (4)、controller中使用@Reference来注入bean
         
-    3、创建springboot-dubbo-service模块，为maven-quickstart项目
+    3、创建springboot-dubbo01-service模块，为maven-quickstart项目
     
-    4、创建springboot-dubbo-api-web模块，为springboot项目
+    4、创建springboot-dubbo01-service-impl模块，为springboot项目
         (1)、在pom.xml文件中添加依赖
             <parent>
                 <groupId>com.wyj</groupId>
@@ -101,7 +101,7 @@
             server.port=8081
             # dubbo
             spring.dubbo.application.name=demo-provider
-            #pring.dubbo.registry.address=zookeeper://127.0.0.1:2181
+            pring.dubbo.registry.address=zookeeper://127.0.0.1:2181
             spring.dubbo.protocol.name=dubbo
             spring.dubbo.protocol.port=20880
             spring.dubbo.scan=com.wyj.service.impl
