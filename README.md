@@ -12,3 +12,4 @@ springboot学习
 | 07  |springboot整合dubbo(使用dubbo.xml文件配置dubbo)      |[说明](./springboot-dubbo02/springboot-dubbo02_instruction.md)                            | [代码](./springboot-dubbo02)|
 | 08  |springboot执行定时任务                               |[说明](./springboot-scheduled01/springboot-scheduled01_instruction.md)                    | [代码](./springboot-scheduled01)|
 | 09  |springboot读取属性文件                               |[说明](./springboot-properties01/springboot-properties01_instruction.md)                  | [代码](./springboot-properties01)|
+| 10  |springboot使用热部署                                 |[说明](./springboot-devtools01/springboot-devtools01_instruction.md)                      | [代码](./springboot-devtools01)|
