@@ -9,9 +9,11 @@
     http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
     <dubbo:application name="${dubbo.application.name}"/>
-    <dubbo:registry address="${dubbo.registry.address}"/>
+    <dubbo:registry id="register" address="${dubbo.registry.address}"/>
+    <dubbo:registry id="local" address="zookeeper://127.0.0.1:2181"/>
     <dubbo:protocol name="${dubbo.protocol.name}"/>
     <!-- 生成远程服务代理，可以和本地bean一样调用 -->
-    <dubbo:reference id="demoService" interface="com.wyj.service.DemoService"/>
+    <!-- 同模块的registry使用local，不同模块的使用远程的register -->
+    <dubbo:reference registry="register" id="demoService" interface="com.wyj.service.DemoService"/>
 
 </beans>

@@ -16,9 +16,10 @@
     <dubbo:protocol name="${dubbo.protocol.name}" port="${dubbo.protocol.port}"/>
 
     <!-- 声明需要暴露的服务接口（注意是接口,不是实现类） -->
-    <dubbo:service interface="com.wyj.service.DemoService" ref="demoService"/>
     <!-- 这里是具体实现类,id和上面的暴露的服务接口ref要一致,dubbo就是通过这个来注册对应的服务 -->
-    <!--<bean id="boardroomService" class="com.wyj.service.impl.BoardroomServiceImpl"></bean>-->
-    <!--<context:component-scan base-package="com.wyj.service.impl"></context:component-scan>-->
+    <!-- 同模块的registry使用local，不同模块的使用远程的register -->
+    <dubbo:service registry="register" interface="com.wyj.service.DemoService" ref="demoService"/>
 
+    <!-- 消费dubbo服务 -->
+    <!--<dubbo:reference registry="register" interface="" id=""/>-->
 </beans>
