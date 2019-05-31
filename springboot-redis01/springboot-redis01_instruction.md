@@ -1,8 +1,8 @@
-# springboot-mybatis-plus01
+# springboot-redis01
 
-**springboot整合mybatis-plus实现增删改查**
+**springboot整合redis**
 
-## springboot整合mybatis-plus关键点
+## springboot整合redis关键点
     1、在pom.xml文件中添加依赖
         <!-- redis -->
         <dependency>
