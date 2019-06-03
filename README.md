@@ -14,3 +14,4 @@ springboot学习
 | 09  |springboot执行定时任务                               |[说明](./springboot-scheduled01/springboot-scheduled01_instruction.md)                    | [代码](./springboot-scheduled01)|
 | 10  |springboot读取属性文件                               |[说明](./springboot-properties01/springboot-properties01_instruction.md)                  | [代码](./springboot-properties01)|
 | 11  |springboot使用热部署                                 |[说明](./springboot-devtools01/springboot-devtools01_instruction.md)                      | [代码](./springboot-devtools01)|
+| 12  |springboot整合jasypt                                 |[说明](./springboot-jasypt01/springboot-jasypt01_instruction.md)                          | [代码](./springboot-jasypt01)|
