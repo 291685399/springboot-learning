@@ -15,3 +15,4 @@ springboot学习
 | 10  |springboot读取属性文件                               |[说明](./springboot-properties01/springboot-properties01_instruction.md)                  | [代码](./springboot-properties01)|
 | 11  |springboot使用热部署                                 |[说明](./springboot-devtools01/springboot-devtools01_instruction.md)                      | [代码](./springboot-devtools01)|
 | 12  |springboot整合jasypt                                 |[说明](./springboot-jasypt01/springboot-jasypt01_instruction.md)                          | [代码](./springboot-jasypt01)|
+| 13  |springboot全局异常处理                               |[说明](./springboot-exceptionhandler01/springboot-exceptionhandler01_instruction.md)      | [代码](./springboot-exceptionhandler01)|
