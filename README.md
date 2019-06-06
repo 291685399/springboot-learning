@@ -16,3 +16,4 @@ springboot学习
 | 11  |springboot使用热部署                                 |[说明](./springboot-devtools01/springboot-devtools01_instruction.md)                      | [代码](./springboot-devtools01)|
 | 12  |springboot整合jasypt                                 |[说明](./springboot-jasypt01/springboot-jasypt01_instruction.md)                          | [代码](./springboot-jasypt01)|
 | 13  |springboot全局异常处理                               |[说明](./springboot-exceptionhandler01/springboot-exceptionhandler01_instruction.md)      | [代码](./springboot-exceptionhandler01)|
+| 14  |springboot发送邮件                                   |[说明](./springboot-mail01/springboot-mail01_instruction.md)                              | [代码](./springboot-mail01)|
