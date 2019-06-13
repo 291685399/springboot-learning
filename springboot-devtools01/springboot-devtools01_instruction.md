@@ -11,7 +11,7 @@
         </dependency>
     2、开启IDEA对热部署的支持
         (1)、Settings --> Build，Execution，Deployment --> 勾选Build project automatically
-        ![勾选Build project automatically](./src/main/resources/images/Build project automatically.png)
+        ​<img src="https://github.com/291685399/springboot-learning/tree/master/springboot-devtools01/src/main/resources/images/Build project automatically.png" width="500px">
         (2)、按快捷键Ctrl + Shift + Alt + /，选择Registry，勾选compiler.automake.allow.when.app.running
-        ![选择Registry](./src/main/resources/images/Registry.png)
-        ![勾选compiler.automake.allow.when.app.running](./src/main/resources/images/compiler.automake.allow.when.app.running.png)
+        ​<img src="https://github.com/291685399/springboot-learning/tree/master/springboot-devtools01/src/main/resources/images/Registry.png" width="500px">
+        ​<img src="https://github.com/291685399/springboot-learning/tree/master/springboot-devtools01/src/main/resources/images/compiler.automake.allow.when.app.running.png" width="500px">
