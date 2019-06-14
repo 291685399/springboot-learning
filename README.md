@@ -20,3 +20,4 @@ springboot学习
 | 15  |springboot异步任务                                   |[说明](./springboot-async01/springboot-async01_instruction.md)                            | [代码](./springboot-async01)|
 | 16  |springboot拦截器                                     |[说明](./springboot-interceptor01/springboot-interceptor01_instruction.md)                | [代码](./springboot-interceptor01)|
 | 17  |springboot整合poi实现Excel导入导出                   |[说明](./springboot-poi01/springboot-poi01_instruction.md)                                | [代码](./springboot-poi01)|
+| 18  |springboot整合springdatajpa实现增删改查、分页、排序  |[说明](./springboot-springdatajpa01/springboot-springdatajpa01_instruction.md)            | [代码](./springboot-springdatajpa01)|
