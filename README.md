@@ -22,4 +22,4 @@ springboot学习
 | 17  |springboot整合poi实现Excel导入导出                   |[说明](./springboot-poi01/springboot-poi01_instruction.md)                                | [代码](./springboot-poi01)|
 | 18  |springboot整合springdatajpa实现增删改查、分页、排序  |[说明](./springboot-springdatajpa01/springboot-springdatajpa01_instruction.md)            | [代码](./springboot-springdatajpa01)|
 | 19  |springboot整合swagger2实现在线接口文档               |[说明](./springboot-swagger201/springboot-swagger201_instruction.md)                      | [代码](./springboot-swagger201)|
-
+| 20  |springboot整合springdatajpa自定义查询方法            |[说明](./springboot-springdatajpa02/springboot-springdatajpa02_instruction.md)            | [代码](./springboot-springdatajpa02)|
