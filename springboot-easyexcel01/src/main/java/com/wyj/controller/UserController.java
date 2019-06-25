@@ -21,6 +21,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 导出Excel
+     */
     @RequestMapping(value = "/exportExcel")
     public void exportExcel() {
         ExcelWriter writer = null;
@@ -50,6 +53,11 @@ public class UserController {
         }
     }
 
+    /**
+     * 下载Excel
+     *
+     * @param response
+     */
     @RequestMapping(value = "/uploadExcel")
     public void uploadExcel(HttpServletResponse response) {
         ExcelWriter writer = null;
