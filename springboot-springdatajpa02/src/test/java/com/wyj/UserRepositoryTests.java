@@ -1,6 +1,6 @@
 package com.wyj;
 
-import com.wyj.dao.UserdefinedRepository;
+import com.wyj.dao.UserRepository;
 import com.wyj.entity.po.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,34 +12,34 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserdefinedRepositoryTests {
+public class UserRepositoryTests {
 
     @Autowired
-    private UserdefinedRepository userdefinedRepository;
+    private UserRepository userRepository;
 
     @Test
     public void findByNameAndAge() {
-        List<User> userList = userdefinedRepository.findByNameAndAge("ljk", 18);
+        List<User> userList = userRepository.findByNameAndAge("ljk", 18);
         System.out.println(userList);
     }
 
     @Test
     public void findByNameOrAge() {
-        List<User> userList = userdefinedRepository.findByNameOrAge("ljk", 18);
+        List<User> userList = userRepository.findByNameOrAge("ljk", 18);
         System.out.println(userList);
     }
 
     @Test
     public void findByNameIs() {
         String str = "wyj";
-        List<User> userList = userdefinedRepository.findByNameIs(str);
+        List<User> userList = userRepository.findByNameIs(str);
         System.out.println(userList);
     }
 
     @Test
     public void findByNameEquals() {
         String str = "wyj";
-        List<User> userList = userdefinedRepository.findByNameEquals(str);
+        List<User> userList = userRepository.findByNameEquals(str);
         System.out.println(userList);
     }
 
@@ -47,35 +47,48 @@ public class UserdefinedRepositoryTests {
     public void findByAgeBetween() {
         int littleAge = 17;
         int bigAge = 18;
-        List<User> userList = userdefinedRepository.findByAgeBetween(littleAge, bigAge);
+        List<User> userList = userRepository.findByAgeBetween(littleAge, bigAge);
         System.out.println(userList);
     }
 
     @Test
     public void findByAgeLessThan() {
         int age = 19;
-        List<User> userList = userdefinedRepository.findByAgeLessThan(age);
+        List<User> userList = userRepository.findByAgeLessThan(age);
         System.out.println(userList);
     }
 
     @Test
     public void findByAgeLessThanEqual() {
         int age = 18;
-        List<User> userList = userdefinedRepository.findByAgeLessThanEqual(age);
+        List<User> userList = userRepository.findByAgeLessThanEqual(age);
         System.out.println(userList);
     }
 
     @Test
     public void findByAgeGreaterThan() {
         int age = 17;
-        List<User> userList = userdefinedRepository.findByAgeGreaterThan(age);
+        List<User> userList = userRepository.findByAgeGreaterThan(age);
         System.out.println(userList);
     }
 
     @Test
     public void findByAgeGreaterThanEqual() {
         int age = 18;
-        List<User> userList = userdefinedRepository.findByAgeGreaterThanEqual(age);
+        List<User> userList = userRepository.findByAgeGreaterThanEqual(age);
+        System.out.println(userList);
+    }
+
+    @Test
+    public void findByOrderByAgeDesc() {
+        List<User> userList = userRepository.findByOrderByAgeDesc();
+        System.out.println(userList);
+    }
+
+    @Test
+    public void findByNameIgnoreCase() {
+        String name = "Wyj";
+        List<User> userList = userRepository.findByNameIgnoreCase(name);
         System.out.println(userList);
     }
 

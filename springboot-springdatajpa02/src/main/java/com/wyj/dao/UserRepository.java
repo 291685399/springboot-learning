@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 可以快速自定义查询方法
  */
-public interface UserdefinedRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
     /**
      * And
@@ -96,7 +96,7 @@ public interface UserdefinedRepository extends JpaRepository<User, Long> {
 
     /**
      * After
-     * 对应sql：对应sql：where age>?
+     * 对应sql：where age>?
      *
      * @param age
      * @return
@@ -216,5 +216,22 @@ public interface UserdefinedRepository extends JpaRepository<User, Long> {
      * @return
      */
     public List<User> findByNameContains(String name);
+
+    /**
+     * OrderBy
+     * 对应sql：order by age desc
+     * desc：降序，asc：升序
+     *
+     * @return
+     */
+    public List<User> findByOrderByAgeDesc();
+
+    /**
+     * Ignorecase
+     * 对应sql：where UPPER(name) = UPPER(?)
+     *
+     * @return
+     */
+    public List<User> findByNameIgnoreCase(String name);
 
 }
