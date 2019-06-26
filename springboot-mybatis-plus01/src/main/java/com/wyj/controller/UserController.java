@@ -1,7 +1,7 @@
 package com.wyj.controller;
 
 import com.wyj.entity.po.User;
-import com.wyj.entity.vo.APIResponse;
+import com.wyj.entity.vo.ApiResponse;
 import com.wyj.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,41 +20,41 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "/insertUser")
-    public APIResponse insertUser() {
+    public ApiResponse insertUser() {
         User user = new User("1", "admin", "admin");
         userService.insertUser(user);
-        return APIResponse.success("保存成功");
+        return ApiResponse.success("保存成功");
     }
 
     @RequestMapping(value = "/updateUser")
-    public APIResponse updateUser() {
+    public ApiResponse updateUser() {
         User user = new User();
         user.setId("1");
         user.setPassword("abc");
         userService.updateUser(user);
-        return APIResponse.success("修改成功");
+        return ApiResponse.success("修改成功");
     }
 
     @RequestMapping(value = "/deleteUser")
-    public APIResponse deleteUser() {
+    public ApiResponse deleteUser() {
         String id = "1";
         userService.deleteUser(id);
-        return APIResponse.success("删除成功");
+        return ApiResponse.success("删除成功");
     }
 
     @RequestMapping(value = "/seleteUser")
-    public APIResponse seleteUser() {
+    public ApiResponse seleteUser() {
         String id = "1";
         User user = userService.seleteUser(id);
-        return APIResponse.success(user);
+        return ApiResponse.success(user);
     }
 
     @RequestMapping(value = "/seleteUserList")
-    public APIResponse seleteUserList() {
+    public ApiResponse seleteUserList() {
         User user = new User();
         user.setUsername("admin");
         List<User> users = userService.seleteUserList(user);
-        return APIResponse.success(users);
+        return ApiResponse.success(users);
     }
 
 }

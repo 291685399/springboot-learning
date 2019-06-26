@@ -6,25 +6,25 @@ import java.io.Serializable;
  * @author wyj
  * @create 2019-03-17 22:41
  */
-public class APIResponse implements Serializable {
+public class ApiResponse implements Serializable {
 
     private String msg;
     private Object data;
 
-    public APIResponse() {
+    public ApiResponse() {
     }
 
-    public APIResponse(Object data) {
+    public ApiResponse(Object data) {
         this.data = data;
     }
 
-    public APIResponse(String msg, Object data) {
+    public ApiResponse(String msg, Object data) {
         this.msg = msg;
         this.data = data;
     }
 
-    public static APIResponse success(Object date) {
-        return new APIResponse(date);
+    public static ApiResponse success(Object date) {
+        return new ApiResponse(date);
     }
 
     public String getMsg() {
