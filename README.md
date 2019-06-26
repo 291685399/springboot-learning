@@ -24,3 +24,4 @@ springboot学习
 | 19  |springboot整合swagger2实现在线接口文档               |[说明](./springboot-swagger201/springboot-swagger201_instruction.md)                      | [代码](./springboot-swagger201)|
 | 20  |springboot整合springdatajpa自定义查询方法            |[说明](./springboot-springdatajpa02/springboot-springdatajpa02_instruction.md)            | [代码](./springboot-springdatajpa02)|
 | 21  |springboot使用easyexcel完成Excel导出                 |[说明](./springboot-easyexcel01/springboot-easyexcel01_instruction.md)                    | [代码](./springboot-easyexcel01)|
+| 22  |springboot整合TkMybatis(通用Mapper)                  |[说明](./springboot-tkmybatis01/springboot-tkmybatis01_instruction.md)                    | [代码](./springboot-tkmybatis01)|
