@@ -25,3 +25,4 @@ springboot学习
 | 20  |springboot整合springdatajpa自定义查询方法            |[说明](./springboot-springdatajpa02/springboot-springdatajpa02_instruction.md)            | [代码](./springboot-springdatajpa02)|
 | 21  |springboot使用easyexcel完成Excel导出                 |[说明](./springboot-easyexcel01/springboot-easyexcel01_instruction.md)                    | [代码](./springboot-easyexcel01)|
 | 22  |springboot整合TkMybatis(通用Mapper)                  |[说明](./springboot-tkmybatis01/springboot-tkmybatis01_instruction.md)                    | [代码](./springboot-tkmybatis01)|
+| 23  |springboot整合springdatajpa使用@Query查询            |[说明](./springboot-springdatajpa03/springboot-springdatajpa03_instruction.md)            | [代码](./springboot-springdatajpa03)|
