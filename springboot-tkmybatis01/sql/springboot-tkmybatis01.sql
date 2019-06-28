@@ -36,7 +36,7 @@ insert  into `user`(`id`,`name`,`sex`,`age`,`address`,`phone`) values
 (1,'zhangsan','男',21,'北京市','12345678932'),
 (2,'lisi','男',23,'上海市','46597812365'),
 (3,'wangwu','女',22,'天津市','12365478965'),
-(4,'mary','女',20,'广州市','12365478921'),
+(4,'mary','女',20,'广州市','12365478921')
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
