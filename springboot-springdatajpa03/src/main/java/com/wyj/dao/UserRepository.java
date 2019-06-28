@@ -1,6 +1,6 @@
 package com.wyj.dao;
 
-import com.wyj.po.User;
+import com.wyj.entity.po.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;

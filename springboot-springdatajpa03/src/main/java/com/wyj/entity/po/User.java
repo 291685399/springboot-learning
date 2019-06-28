@@ -1,4 +1,4 @@
-package com.wyj.po;
+package com.wyj.entity.po;
 
 import lombok.Data;
 

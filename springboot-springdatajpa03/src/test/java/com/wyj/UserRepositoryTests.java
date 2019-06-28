@@ -1,7 +1,7 @@
 package com.wyj;
 
 import com.wyj.dao.UserRepository;
-import com.wyj.po.User;
+import com.wyj.entity.po.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
