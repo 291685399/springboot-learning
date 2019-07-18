@@ -1,4 +1,4 @@
-package com.wyj.interceptot;
+package com.wyj.interceptor;
 
 import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.executor.Executor;
@@ -22,7 +22,7 @@ import java.util.Properties;
 import java.util.regex.Matcher;
 
 /**
- * 实现Interceptor接口，在SQL执行过程前后进行打印SQL执行时间、SQL信息、Mapper信息进行日志打印
+ * 实现Interceptor拦截器接口，在SQL执行过程前后对SQL执行时间、SQL信息、Mapper信息进行日志打印
  *
  * @author wyj
  */
