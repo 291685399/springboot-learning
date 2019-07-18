@@ -1,0 +1,50 @@
+package com.wyj.service;
+
+import com.wyj.entity.po.User;
+
+import java.util.List;
+
+/**
+ * @author wyj
+ * @create 2019-03-17 22:27
+ */
+public interface UserService {
+
+    /**
+     * 新增数据
+     *
+     * @param user
+     */
+    public void insertUser(User user);
+
+    /**
+     * 修改数据
+     *
+     * @param user
+     */
+    public void updateUser(User user);
+
+    /**
+     * 删除数据
+     *
+     * @param id
+     */
+    public void deleteUser(int id);
+
+    /**
+     * 查找单条数据
+     *
+     * @param id
+     * @return
+     */
+    public User selectUser(int id);
+
+    /**
+     * 查找多条数据
+     *
+     * @param user
+     * @return
+     */
+    public List<User> selectUserList(User user);
+
+}
