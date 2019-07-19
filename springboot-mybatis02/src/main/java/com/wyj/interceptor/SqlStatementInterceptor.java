@@ -22,7 +22,7 @@ import java.util.Properties;
 import java.util.regex.Matcher;
 
 /**
- * 实现Interceptor拦截器接口，在SQL执行过程前后对SQL执行时间、SQL信息、Mapper信息进行日志打印
+ * 实现Interceptor接口，在SQL执行过程前后进行打印SQL实行时间、SQL信息、Mapper信息进行日志打印输出
  *
  * @author wyj
  */
@@ -45,16 +45,16 @@ public class SqlStatementInterceptor implements Interceptor {
             Object parameter = "";
             if (invocation.getArgs().length > 1) {
                 parameter = invocation.getArgs()[1];
-                logger.info("transmit parameter = [ {} ]", parameter);//打印入参参数
+                logger.info("==> transmit Parameters is [ {} ]", parameter);//打印入参参数
             }
             String sqlId = mappedStatement.getId(); // 获取到节点的id,即sql语句的id
             String[] mappers = getMapper(sqlId);
-            logger.info("execute Mapper name is [ {} ]", mappers[0]);//打印执行的Mapper名称
-            logger.info("execute Mapper method is [ {} ]", mappers[1]);//打印执行的Mapper方法
+            logger.info("==> execute Mapper name is [ {} ]", mappers[0]);//打印执行的Mapper名称
+            logger.info("==> execute Mapper method is [ {} ]", mappers[1]);//打印执行的Mapper方法
             BoundSql boundSql = mappedStatement.getBoundSql(parameter);// BoundSql就是封装myBatis最终产生的sql类
             Configuration configuration = mappedStatement.getConfiguration();// 获取节点的配置
-            logger.info("execute SQL with parameters is [ {} ]", getSql(configuration, boundSql));//打印执行带参SQL
-            logger.info("execute SQL time is [ {} ] ms", (endTime - startTime));
+            logger.info("==> execute SQL with Parameters is [ {} ]", getSql(configuration, boundSql));//打印执行带参SQL
+            logger.info("==> execute SQL cost [ {} ] ms", (endTime - startTime));
         }
     }
 
@@ -84,7 +84,7 @@ public class SqlStatementInterceptor implements Interceptor {
                 .getParameterMappings();
         String sql = boundSql.getSql().replaceAll("[\\s]+", " ");//sql语句中多个空格都用一个空格代替
         if (parameterMappings.size() > 0 && parameterObject != null) {
-            TypeHandlerRegistry typeHandlerRegistry = configuration.getTypeHandlerRegistry(); //获取类型处理器注册器，类型处理器的功能是进行java类型和数据库类型的转换<br>　　　　　　　// 如果根据parameterObject.getClass(）可以找到对应的类型，则替换
+            TypeHandlerRegistry typeHandlerRegistry = configuration.getTypeHandlerRegistry(); //获取类型处理器注册器，类型处理器的功能是进行java类型和数据库类型的转换。如果根据parameterObject.getClass(）可以找到对应的类型，则替换
             if (typeHandlerRegistry.hasTypeHandler(parameterObject.getClass())) {
                 sql = sql.replaceFirst("\\?", Matcher.quoteReplacement(getParameterValue(parameterObject)));
             } else {
