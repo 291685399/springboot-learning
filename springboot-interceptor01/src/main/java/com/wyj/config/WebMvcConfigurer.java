@@ -6,14 +6,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 
 /**
  * 在springboot2.0.0之后，WebMvcConfigurerAdapter已经过时了
- * 使用
+ * 会使用WebMvcConfigurer或者WebMvcConfigurationSupport替代
  *
  * @author wyj
  * @create 2019-06-01 21:48
  */
-// /*/**表示拦截所有请求
 @Configuration
-public class MyWebMvcConfigurer extends WebMvcConfigurationSupport {
+public class WebMvcConfigurer extends WebMvcConfigurationSupport {
 
     /**
      * 在springboot2.0.0之前继承WebMvcConfigurerAdapter类，重写addInterceptors方法
@@ -23,13 +22,10 @@ public class MyWebMvcConfigurer extends WebMvcConfigurationSupport {
 //    @Override
 //    public void addInterceptors(InterceptorRegistry registry) {
 //        /**
-//         * 拦截器按照顺序执行
+//         * 拦截器按照顺序执行,如果不同拦截器拦截存在相同的URL，前面的拦截器会执行，后面的拦截器将不执行
 //         */
-//        registry.addInterceptor(new TwoInterceptor())
-//                .addPathPatterns("/two/**")
-//                .addPathPatterns("/one/**");
-//        registry.addInterceptor(new OneInterceptor())
-//                .addPathPatterns("/one/**");
+//        registry.addInterceptor(new AuthorityInterceptor())
+//                .addPathPatterns("/user/**");
 //        super.addInterceptors(registry);
 //    }
 
@@ -41,13 +37,10 @@ public class MyWebMvcConfigurer extends WebMvcConfigurationSupport {
 //    @Override
 //    public void addInterceptors(InterceptorRegistry registry) {
 //        /**
-//         * 拦截器按照顺序执行
+//         * 拦截器按照顺序执行,如果不同拦截器拦截存在相同的URL，前面的拦截器会执行，后面的拦截器将不执行
 //         */
-//        registry.addInterceptor(new TwoInterceptor())
-//                .addPathPatterns("/two/**")
-//                .addPathPatterns("/one/**");
-//        registry.addInterceptor(new OneInterceptor())
-//                .addPathPatterns("/one/**");
+//        registry.addInterceptor(new AuthorityInterceptor())
+//                .addPathPatterns("/user/**");
 //    }
 
     /**
@@ -58,14 +51,10 @@ public class MyWebMvcConfigurer extends WebMvcConfigurationSupport {
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
         /**
-         * 拦截器按照顺序执行
+         * 拦截器按照顺序执行,如果不同拦截器拦截存在相同的URL，前面的拦截器会执行，后面的拦截器将不执行
          */
-        registry.addInterceptor(new TwoInterceptor())
-                .addPathPatterns("/two/**")
-                .addPathPatterns("/one/**");
-        registry.addInterceptor(new OneInterceptor())
-                .addPathPatterns("/one/**");
+        registry.addInterceptor(new AuthorityInterceptor())
+                .addPathPatterns("/user/**");
         super.addInterceptors(registry);
     }
-
 }
