@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Thymeleaf模板引擎</title>
+    <!--<script th:src="@{/static/js/test.js}"></script>-->
+</head>
+<body>
+<div>
+    用户姓名：<input th:id="${user.name}" th:name="${user.name}" th:value="${user.name}">
+    <br/>
+    用户性别：<input th:value="${user.sex}"/>
+    <br/>
+    用户生日：<input th:value="${user.birthday}"/>
+    <br/>
+    用户生日：<input th:value="${#dates.format(user.birthday,'yyyy-MM-dd')}"/>
+    <br/>
+</div>
+<br/>
+<div th:object="${user}">
+    用户姓名：<input th:value="*{name}"/>
+    <br/>
+    用户性别：<input th:value="*{sex}"/>
+    <br/>
+    用户生日：<input th:value="*{#dates.format(birthday,'yyyy-MM-dd')}"/>
+    <br/>
+</div>
+<br/>
+<div>
+    text和utext：
+    <br/>
+    <span th:text="${user.color}">aaa</span>
+    <br/>
+    <span th:utext="${user.color}">aaa</span>
+    <br/>
+</div>
+<br/>
+<div>
+    URL：
+    <br/>
+    <a href="http://www.baidu.com">百度</a>
+    <br/>
+    <a th:href="@{http://www.baidu.com}">百度</a>
+    <br/>
+</div>
+<br/>
+<div>
+    <form th:action="@{/postform}" th:object="${user}" method="post" th:method="post">
+        <input type="text" th:field="*{name}"/><!-- th:field="*{name}"相当于id=name,name=name,value=name的值 -->
+        <br/>
+        <input type="text" th:field="*{sex}"/>
+        <br/>
+        <input type="submit"/>
+    </form>
+</div>
+<br/>
+<div>
+    <div th:if="${user.age} == 18">一</div><!-- th:unless和th:if相反 -->
+    <div th:if="${user.age} gt 18">二</div>
+    <div th:if="${user.age} lt 18">三</div>
+    <div th:if="${user.age} ge 18">四</div>
+    <div th:if="${user.age} le 18">五</div>
+</div>
+<br/>
+<div>
+    <select>
+        <option>选择框</option>
+        <option th:selected="${user.name eq '张三'}">张三</option>
+        <option th:selected="${user.name eq '李四'}">李四</option>
+        <option th:selected="${user.name eq '王五'}">王五</option>
+    </select>
+</div>
+<br/>
+<div>
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>年龄备注</th>
+            <th>生日</th>
+        </tr>
+        <tr th:each="user:${userList}">
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.sex}"></td>
+            <td th:text="${user.age}"></td>
+            <td th:text="${user.age gt 18} ? 老了:年轻"></td>
+            <td th:text="${#dates.format(user.birthday,'yyyy-MM-dd hh:mm:ss')}"></td>
+        </tr>
+    </table>
+</div>
+<br/>
+<div th:switch="${user.name}">
+    <p th:case="张三">张三</p>
+    <p th:case="#{user.name}">李四</p>
+    <p th:case="*">王五</p>
+</div>
+</body>
+</html>
