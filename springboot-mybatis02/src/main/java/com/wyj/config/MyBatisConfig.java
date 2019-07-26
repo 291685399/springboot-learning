@@ -1,21 +1,26 @@
 package com.wyj.config;
 
-import com.wyj.interceptot.SqlStatementInterceptor;
+import com.wyj.interceptor.SqlStatementInterceptor;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
-import javax.annotation.Resource;
 import javax.sql.DataSource;
 
+/**
+ * 用于将实现的mybatis拦截器、mapper xml配置文件的路径和别名包的路径设置到SqlSessionFactory中
+ *
+ * @author wyj
+ */
 @Configuration
 public class MyBatisConfig {
 
-    @Resource
+    @Autowired
     private DataSource dataSource;
 
     @Value("${mybatis.mapper-locations}")
@@ -34,5 +39,5 @@ public class MyBatisConfig {
         sqlSessionFactoryBean.setTypeAliasesPackage(typeAliasesPackage);
         return sqlSessionFactoryBean.getObject();
     }
-
 }
+

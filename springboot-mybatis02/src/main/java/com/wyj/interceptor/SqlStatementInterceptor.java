@@ -29,7 +29,8 @@ import java.util.regex.Matcher;
 @Intercepts(value = {
         @Signature(type = Executor.class, method = "update", args = {MappedStatement.class, Object.class}),
         @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class, CacheKey.class, BoundSql.class}),
-        @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class})})
+        @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class})
+})
 public class SqlStatementInterceptor implements Interceptor {
 
     private static Logger logger = LoggerFactory.getLogger(SqlStatementInterceptor.class);
@@ -54,7 +55,7 @@ public class SqlStatementInterceptor implements Interceptor {
             BoundSql boundSql = mappedStatement.getBoundSql(parameter);// BoundSql就是封装myBatis最终产生的sql类
             Configuration configuration = mappedStatement.getConfiguration();// 获取节点的配置
             logger.info("==> execute SQL with Parameters is [ {} ]", getSql(configuration, boundSql));//打印执行带参SQL
-            logger.info("==> execute SQL cost [ {} ] ms", (endTime - startTime));
+            logger.info("==> execute SQL cost [ {} ] ms", (endTime - startTime));//打印SQL执行时间
         }
     }
 
@@ -139,33 +140,3 @@ public class SqlStatementInterceptor implements Interceptor {
 
     }
 }
-
-//@Slf4j
-//@Intercepts({@Signature(type = StatementHandler.class, method = "query", args = {Statement.class, ResultHandler.class})})
-//public class SqlStatementInterceptor implements Interceptor {
-//
-//    @Override
-//    public Object intercept(Invocation invocation) throws Throwable {
-//        long startTime = System.currentTimeMillis();
-//        try {
-//            return invocation.proceed();
-//        } finally {
-//            long endTime = System.currentTimeMillis();
-//            StatementHandler statementHandler = (StatementHandler) invocation.getTarget();
-//            BoundSql boundSql = statementHandler.getBoundSql();
-//            String sql = boundSql.getSql();
-//            sql = sql.replace("\n", "").replace("\t", "").replaceAll("\\s+", " ");
-//            log.info("执行SQL: [{}]，花费{}ms", sql, (endTime - startTime));
-//        }
-//    }
-//
-//    @Override
-//    public Object plugin(Object target) {
-//        return Plugin.wrap(target, this);
-//    }
-//
-//    @Override
-//    public void setProperties(Properties properties) {
-//    }
-//
-//}
