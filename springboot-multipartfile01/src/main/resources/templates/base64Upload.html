@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>图片转化成Base64</title>
+</head>
+<body>
+<!--<img id="img" src="imge/mm.jpg">-->
+<!--<button id="btn">base64</button>-->
+
+<input type="file" id="imgInput">
+<hr/>
+<input type="button" value="上传" onclick="upload()"/>
+<hr/>
+<img id="img" src="data:image/png;base64,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">
+
+</body>
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/cropper.js"></script><!-- 需要引入cropper.js 支持转化-->
+<script type="text/javascript">
+    var base64Phone = "";
+    $(function () {
+        //将上传的图片文件转化成base64
+        $("#imgInput").change(function () {
+            if (typeof (FileReader) === 'undefined') {
+                console.log("抱歉，你的浏览器不支持 FileReader，请使用现代浏览器操作！");
+                return;
+            }
+            var file = this.files[0];//获取文件对象
+            console.log(file.type);//输出文件类型
+            if (!/image/.test(file.type)) {
+                return;
+            }
+            var reader = new FileReader();
+            reader.readAsDataURL(file);//读取图片文件
+            reader.onload = function () {
+                console.log(this.result);
+                base64Phone = this.result;
+            }
+        });
+    });
+
+    function upload() {
+        console.log(base64Phone);
+        $.ajax({
+            url: "/base64Upload",
+            type: "POST",
+            data: {
+                'base64Phone': base64Phone
+            },
+            success:
+                function (obj) {
+                    $('#none').html(obj);
+                },
+            error:
+                function () {
+                    alert("系统异常");
+                }
+        });
+    }
+
+    //将现有的图片转化成base64
+    // $("#btn").click(function () {
+    //     var imageSrc = $("#img").attr("src");
+    //     var image = new Image();
+    //     image.src = imageSrc;           //将地址对应图片转化成图片对象
+    //     image.onload = function () {
+    //         var ext = imageSrc.substring(imageSrc.lastIndexOf(".") + 1);  //获取扩展名
+    //         var base64 = getBase64Image(image, ext);
+    //         console.log(base64);
+    //     }
+    // });
+
+    //将图片转化成base64图片（压缩图片）
+    // function getBase64Image(image, ext) { //可封装公用方法
+    //     var quality = 0.7;   //比率（压缩比）
+    //     var canvas = document.createElement("canvas");
+    //     canvas.width = image.width;
+    //     canvas.height = image.height;
+    //     var context = canvas.getContext("2d");
+    //     context.clearRect(0, 0, canvas.width, canvas.height);
+    //     context.drawImage(image, 0, 0, image.width, image.height);
+    //
+    //     // 这里是不支持跨域的
+    //     var base64 = canvas.toDataURL("image/" + ext, quality);      //需要文件扩展名
+    //     return base64;
+    //
+    // }
+    //
+    // // 将base64图片转化成Blob【该方法未测试】
+    // function convertBase64UrlToBlob(urlData) {
+    //     var bytes = window.atob(urlData.split(',')[1]);        //去掉url的头，并转换为byte
+    //
+    //     //处理异常,将ascii码小于0的转换为大于0
+    //     var ab = new ArrayBuffer(bytes.length);
+    //     var ia = new Uint8Array(ab);
+    //     for (var i = 0; i < bytes.length; i++) {
+    //         ia[i] = bytes.charCodeAt(i);
+    //     }
+    //     return new Blob([ab], {type: 'image/png'});
+    // }
+</script>
+</html>
