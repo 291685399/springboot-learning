@@ -1,10 +1,9 @@
 package com.wyj.controller;
 
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -22,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @ApiImplicitParams：多个请求参数
  * @create 2019-06-11 20:40
  */
+@Api(value = "测试Controller", tags = {"测试Controller访问接口"})
 @RestController
 public class DemoController {
 
@@ -32,13 +32,29 @@ public class DemoController {
     })
     @RequestMapping(value = "/demo", method = RequestMethod.POST)
     public String demo(String name, String password) {
-        return "hhh";
+        return "aaa";
     }
 
     @ApiOperation("测试接口2")
     @RequestMapping(value = "/demo2", method = RequestMethod.GET)
-    public String demo2() {
+    public String demo2(@ApiParam("电影名称") @RequestParam("filmName") String filmName,
+                        @ApiParam(value = "分数", allowEmptyValue = true) @RequestParam("score") Short score,
+                        @ApiParam("发布时间") @RequestParam(value = "publishTime", required = false) String publishTime,
+                        @ApiParam("创建者id") @RequestParam("creatorId") Long creatorId) {
         return "bbb";
+    }
+
+    @ApiOperation("测试接口3")
+    @ApiResponses(value = {
+            @ApiResponse(code = 1000, message = "成功"),
+            @ApiResponse(code = 1001, message = "失败"),
+            @ApiResponse(code = 1002, message = "缺少参数")})
+    @RequestMapping(value = "/demo3", method = RequestMethod.POST)
+    public String demo3(@ApiParam("电影名称") @RequestParam("filmName") String filmName,
+                        @ApiParam(value = "分数", allowEmptyValue = true) @RequestParam("score") Short score,
+                        @ApiParam("发布时间") @RequestParam(value = "publishTime", required = false) String publishTime,
+                        @ApiParam("创建者id") @RequestParam("creatorId") Long creatorId) {
+        return "ccc";
     }
 
 }
